@@ -3,8 +3,10 @@ package com.example.ndpsh.prueba_03;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -29,12 +31,32 @@ public class MainActivity extends AppCompatActivity {
         names.add("Ruben");
         names.add("Pepe");
         names.add("Dani");
+        names.add("Alex");
+        names.add("Ruben");
+        names.add("Pepe");
+        names.add("Dani");
+        names.add("Ruben");
+        names.add("Pepe");
+        names.add("Dani");
+        names.add("Ruben");
+        names.add("Pepe");
+        names.add("Dani");
+        names.add("Ruben");
+        names.add("Pepe");
+        names.add("Dani");
+        names.add("Ruben");
+        names.add("Pepe");
+        names.add("Dani");
+        names.add("Ruben");
+        names.add("Pepe");
+        names.add("Dani");
+        names.add("Alex");
 
         // Adaptador la forma visual del ListView,primero se le pasa el contexto = activity en el que nos encontramos
-        ArrayAdapter<String> adapter =new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,names);
+        //ArrayAdapter<String> adapter =new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,names);
 
         // Enlazamos nuestro listview junto adaptador
-        listView.setAdapter(adapter);
+        //listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -42,5 +64,10 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Cliked: "+names.get(position),Toast.LENGTH_SHORT).show();
             }
         });
+
+        // Enlazamos con nuestro adaptador personalizado
+        MyAdapter myAdapter = new MyAdapter(this, R.layout.list_item, names);
+        listView.setAdapter(myAdapter);
     }
 }
+
